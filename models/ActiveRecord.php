@@ -68,13 +68,6 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
-    // Busca todos los registros que pertenecen a un ID
-    public static function belongsTo($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} = '${valor}'";
-        $resultado = self::consultarSQL($query);
-        return $resultado;
-    }
-
     // SQL para Consultas Avanzadas.
     public static function SQL($consulta) {
         $query = $consulta;
@@ -93,7 +86,7 @@ class ActiveRecord {
         $query .= " ) VALUES (' "; 
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
-        
+
         // Resultado de la consulta
         $resultado = self::$db->query($query);
 
@@ -152,7 +145,7 @@ class ActiveRecord {
         $objeto = new static;
 
         foreach($registro as $key => $value ) {
-            if(property_exists( $objeto, $key)) {
+            if(property_exists( $objeto, $key  )) {
                 $objeto->$key = $value;
             }
         }
