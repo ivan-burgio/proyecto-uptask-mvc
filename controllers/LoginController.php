@@ -5,9 +5,7 @@ namespace Controllers;
 use MVC\Router;
 
 class LoginController {
-
     public static function login(Router $router) {
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
@@ -24,7 +22,6 @@ class LoginController {
     }
 
     public static function crear(Router $router) {
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
@@ -37,24 +34,26 @@ class LoginController {
     }
 
     public static function olvide(Router $router) {
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
 
         // Render a la vista
         $router->render('auth/olvide', [
-            'titulo' => 'Olvide mi Cuenta'
+            'titulo' => 'Olvide mi Contraseña'
         ]);
         
     }
 
     public static function reestablecer(Router $router) {
-        echo "desde reestablecer";
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
+
+        // Render a la vista
+        $router->render('auth/reestablecer', [
+            'titulo' => 'Reestablecer Contraseña'
+        ]);
     }
 
     public static function mensaje(Router $router) {
