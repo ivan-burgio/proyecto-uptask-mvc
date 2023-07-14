@@ -46,7 +46,7 @@
     grid-template-columns: repeat($columnas, 1fr);
 }
 
-@mixin textDegradado($color) {
+@mixin textoDegradado($color) {
     margin-top: 5rem;
 
     .uptask {

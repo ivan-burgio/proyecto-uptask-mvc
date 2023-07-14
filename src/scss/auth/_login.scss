@@ -2,10 +2,10 @@
 @use 'base/mixins' as m;
 
 .login {
-    @include textoDegradado(v.$cyan);
+    @include m.textoDegradado(v.$cyan);
 
     input[type="submit"] {
-        @include boton(v.$cyan, v.$blanco);
+        @include m.boton(v.$cyan, v.$blanco);
     }
 
     .acciones {

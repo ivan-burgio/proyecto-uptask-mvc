@@ -2,10 +2,10 @@
 @use 'base/mixins' as m;
 
 .crear {
-    @include textoDegradado(v.$morado);
+    @include m.textoDegradado(v.$morado);
 
     input[type="submit"] {
-        @include boton(v.$morado, v.$blanco);
+        @include m.boton(v.$morado, v.$blanco);
     }
 
     .acciones {
