@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.confirmar {
+    @include m.textoDegradado(v.$indigo);
+
+    .acciones {
+        justify-content: center;
+        
+        a {
+            color:v.$indigo;
+        }
+    }
+}
