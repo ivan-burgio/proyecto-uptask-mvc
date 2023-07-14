@@ -19,8 +19,8 @@
         </form>
 
         <div class="acciones">
+            <a href="/">¿Ya tienes cuenta? Inicia Sesión.</a>
             <a href="/crear">¿Aún no tienes cuenta? Crea una.</a>
-            <a href="/olvide">¿Olvidaste tu contraseña? Cambiala.</a>
         </div>
     </div>
 </div>
