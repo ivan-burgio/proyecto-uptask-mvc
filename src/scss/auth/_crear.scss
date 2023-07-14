@@ -1,16 +1,16 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.login {
-    @include textoDegradado(v.$cyan);
+.crear {
+    @include textoDegradado(v.$morado);
 
     input[type="submit"] {
-        @include boton(v.$cyan, v.$blanco);
+        @include boton(v.$morado, v.$blanco);
     }
 
     .acciones {
         a {
-            color: v.$cyan;
+            color:v.$morado;
         }
     }
 }

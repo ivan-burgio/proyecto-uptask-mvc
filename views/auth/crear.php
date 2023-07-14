@@ -46,7 +46,7 @@
                 >
             </div>
 
-            <input type="submit" class="boton" value="Iniciar Sesión">
+            <input type="submit" class="boton" value="Crear Cuenta">
         </form>
 
         <div class="acciones">
