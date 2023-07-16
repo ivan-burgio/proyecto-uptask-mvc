@@ -2,6 +2,8 @@
 
 namespace Classes;
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 class Email {
     protected $email;
     protected $nombre;
@@ -16,21 +18,21 @@ class Email {
 
     public function enviarConfirmacion() {
         // Crear el objeto de email
-        $phpmailer = new PHPMailer();
-        $phpmailer->isSMTP();
-        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
-        $phpmailer->SMTPAuth = true;
-        $phpmailer->Port = 2525;
-        $phpmailer->Username = 'b345255ffd7776';
-        $phpmailer->Password = '3382bdd9697836';
+        $email = new PHPMailer();
+        $email->isSMTP();
+        $email->Host = 'sandbox.smtp.mailtrap.io';
+        $email->SMTPAuth = true;
+        $email->Port = 2525;
+        $email->Username = 'b345255ffd7776';
+        $email->Password = '3382bdd9697836';
 
-        $phpmailer->setFrom('cuentas@uptask.com');
-        $phpmailer->addAddress('cuentas@uptask.com', 'Uptask.com');
-        $phpmailer->Subject = 'Confirma tu cuenta';
+        $email->setFrom('cuentas@uptask.com');
+        $email->addAddress('cuentas@uptask.com', 'Uptask.com');
+        $email->Subject = 'Confirma tu cuenta';
 
         // Set HTML
-        $phpmailer->isHTML(TRUE);
-        $phpmailer->CharSet = 'UTF-8';
+        $email->isHTML(TRUE);
+        $email->CharSet = 'UTF-8';
 
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong>!, ";
@@ -40,9 +42,9 @@ class Email {
         $contenido .= "<p>Si tu no solicitaste este email, puedes ignorar este mensaje.</p>";
         $contenido .= "</html>";
 
-        $phpmailer->Body = $contenido;
+        $email->Body = $contenido;
 
         // Enviar email
-        $phpmailer->send();
+        $email->send();
     }
 }
