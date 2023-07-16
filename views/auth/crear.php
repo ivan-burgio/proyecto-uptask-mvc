@@ -13,6 +13,7 @@
                     id="nombre"
                     placeholder="Tu nombre"
                     name="nombre"
+                    value="<?php echo $usuario->nombre; ?>"
                 >
             </div>
         
@@ -23,6 +24,7 @@
                     id="email"
                     placeholder="Tu email"
                     name="email"
+                    value="<?php echo $usuario->email; ?>"
                 >
             </div>
 
