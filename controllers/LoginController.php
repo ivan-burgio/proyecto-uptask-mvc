@@ -77,6 +77,10 @@ class LoginController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = new Usuario($_POST);
             $alertas = $usuario->validarEmail();
+
+            if(empty($alertas)) {
+                
+            }
         }
 
         // Render a la vista
