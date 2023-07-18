@@ -47,6 +47,16 @@ class Usuario extends ActiveRecord {
         return self::$alertas;
     }
 
+    public function validarPassword() {
+        if(!$this->password) {
+            self::$alertas['error'][] = 'Ingrese una contraseña';
+        } elseif (strlen($this->password) < 8) {
+            self::$alertas['error'][] = 'Ingrese una contraseña de almenos 8 caracteres';
+        }
+
+        return self::$alertas;
+    }
+
     public function hashPassword() {
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
