@@ -136,7 +136,21 @@ class LoginController {
             $alertas = $usuario->validarPassword();
 
             if(empty($alertas)) {
-                
+                // Hashear el password
+                $usuario->hashPassword();
+                unset($usuario->password2);
+
+                // Eliminar el token
+                $usuario->token = null;
+
+                // Guardar la nueva password
+                $resultado = $usuario->guardar();
+
+                // Redireccionar
+                if($resultado) {
+                    header('Location: /');
+                }
+
             }
         }
 
