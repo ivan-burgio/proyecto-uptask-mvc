@@ -12,11 +12,11 @@ class LoginController {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = new Usuario($_POST);
-            $alertas = $usuario->validarLgin();
+            $alertas = $usuario->validarLogin();
 
             if(empty($alertas)) {
                 // Verificar si el usuario existe
-                $usuario = Usuario::where('email', $auth->email);
+                $usuario = Usuario::where('email', $usuario->email);
 
                 if(!$usuario) {
                     Usuario::setAlerta('error', 'El usuario no existe');
@@ -33,7 +33,7 @@ class LoginController {
                         $_SESSION['login'] = true;
 
                         // Redireccionar
-                        header('Location: /proyectos');
+                        header('Location: /dashboard');
                     } else {
                         Usuario::setAlerta('error', 'La contraseña es incorrecta');
                     }
