@@ -11,7 +11,7 @@ class DashboardController {
 
         // Render a la vista
         $router->render('dashboard/index', [
-
+            'titulo' => 'Proyectos',
         ]);
     }
 }
