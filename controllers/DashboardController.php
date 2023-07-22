@@ -19,9 +19,12 @@ class DashboardController {
         session_start();
         isAuth();
 
+        $alertas = [];
+
         // Render a la vista
         $router->render('dashboard/crear-proyecto', [
             'titulo' => 'Crear Proyecto',
+            'alertas' => $alertas,
         ]);
     }
 
