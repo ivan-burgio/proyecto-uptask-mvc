@@ -3,7 +3,7 @@
 namespace Model;
 
 class Proyecto extends ActiveRecord {
-    protected static $tabla = 'proyecto';
+    protected static $tabla = 'proyectos';
     protected static $columnasDB = ['id', 'proyecto', 'url', 'propietarioId'];
 
     public function __construct($args = []) {
