@@ -1,6 +1,6 @@
 <?php
 
-namespace Proyecto;
+namespace Model;
 
 class Proyecto extends ActiveRecord {
     protected static $tabla = 'proyecto';
@@ -13,5 +13,11 @@ class Proyecto extends ActiveRecord {
         $this->propietarioId = $args['propietarioId'] ?? '';
     }
 
-    
+    public function validarProyecto() {
+        if(!$this->proyecto) {
+            self::$alertas['error'][] = 'Ingrese un nombre para el proyecto';
+        }
+
+        return self::$alertas;
+    }
 }
