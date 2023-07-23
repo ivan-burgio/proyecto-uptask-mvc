@@ -9,10 +9,14 @@ class DashboardController {
     public static function index(Router $router) {
         session_start();
         isAuth();
+        $id = $_SESSION['id'];
+
+        $proyectos = Proyecto::belongTo('propietarioId', $id);
 
         // Render a la vista
         $router->render('dashboard/index', [
             'titulo' => 'Proyectos',
+            'proyectos' => $proyectos,
         ]);
     }
 
@@ -39,7 +43,7 @@ class DashboardController {
                 $proyecto->guardar();
 
                 // Redireccionar
-                header('Location: /proyecto?url=' . $proyecto->url);
+                header('Location: /proyecto?id=' . $proyecto->url);
             }
         }
 
