@@ -14,12 +14,17 @@
         background-color: v.$blanco;
         padding: 2rem;
         margin: 0 auto;
-        transform: translateY(-30rem);
+        transform: translateY(-50vh);
+        transition-property: all;
+        transition-duration: 800ms;
+        transition-timing-function: ease-out;
+        opacity: 0;
 
         &.animar {
             position: relative;
             top: 50%;
             transform: translateY(-50%);
+            opacity: 1;
         }
     }
 }
