@@ -46,9 +46,24 @@
                     modal.remove();
                 }, 500);
             }
+
+            if(e.target.classList.contains('submit-envviar-tarea')) {
+                submitFormularioNuevaTarea();
+            }
         })
 
         document.querySelector('body').appendChild(modal);
+    }
+
+    function submitFormularioNuevaTarea() {
+        const tarea = document.querySelector('#tarea').value.trim();
+
+        if(tarea === '') {
+            // Mostar alerta de error
+            alert()
+
+            return;
+        }
     }
 
 })();
