@@ -33,7 +33,7 @@
         setTimeout(() => {
             const formulario = document.querySelector('.formulario');
             formulario.classList.add('animar');
-        }, 0);
+        }, 300);
 
         modal.addEventListener('click', function(e) {
             e.preventDefault();
@@ -44,15 +44,15 @@
 
                 setTimeout(() => {
                     modal.remove();
-                }, 500);
+                }, 600);
             }
 
-            if(e.target.classList.contains('submit-envviar-tarea')) {
+            if(e.target.classList.contains('submit-nueva-tarea')) {
                 submitFormularioNuevaTarea();
             }
         })
 
-        document.querySelector('body').appendChild(modal);
+        document.querySelector('.dashboard').appendChild(modal);
     }
 
     function submitFormularioNuevaTarea() {
@@ -60,10 +60,37 @@
 
         if(tarea === '') {
             // Mostar alerta de error
-            alert()
+            mostrarAlerta('Ingrese el nombre de la tarea', 'error', document.querySelector('.formulario legend'));
 
             return;
         }
+
+        agregarTarea(tarea);
+    }
+
+    function mostrarAlerta(mensaje, tipo, referencia) {
+        //Previene la creacion de multiples alertas
+        const alertaPrevia = document.querySelector('.alerta');
+
+        if(alertaPrevia) {
+            alertaPrevia.remove();
+        }
+
+        const alerta = document.createElement('DIV');
+        alerta.classList.add('alerta', tipo);
+        alerta.textContent = mensaje;
+
+        // Insertar la alerta despues del legend
+        referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+        // Eliminar la alerta
+        setTimeout(() => {
+            alerta.remove();
+        }, 5000);
+    }
+
+    function agregarTarea(tarea) {
+        
     }
 
 })();
