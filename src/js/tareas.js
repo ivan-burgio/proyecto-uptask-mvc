@@ -104,6 +104,8 @@
             
             const resultado = await respuesta.json();
             console.log(resultado);
+
+            mostrarAlerta(resultado.mensaje, resultado.tipo, document.querySelector('.formulario legend'));
         } catch (error) {
             console.log(error);
         }
