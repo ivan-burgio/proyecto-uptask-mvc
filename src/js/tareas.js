@@ -30,12 +30,26 @@
            return;
         }
 
+        const estados = {
+            0: 'Pendiente',
+            1: 'Completa'
+        }
+
         tareas.forEach(tarea => {
             const contenedorTarea = document.createElement('LI');
             contenedorTarea.dataset.tareaId = tarea.id;
             contenedorTarea.classList.add('tarea');
             const nombreTarea = document.createElement('P');
             nombreTarea.textContent = tarea.nombre;
+            const opcionesDiv = document.createElement('DIV');
+            opcionesDiv.classList.add('opciones');
+            
+            // Botones
+            const btnEstadoTarea = document.createElement('BUTTON');
+            btnEstadoTarea.classList.add('estado-tarea');
+            btnEstadoTarea.classList.add(`${estados[tareas.estado].toLowerCase()}`);
+            btnEstadoTarea.textContent = estados[tarea.estado];
+            btnEstadoTarea.dataset.estadoTarea = tarea.estado;
         });
     }
 
