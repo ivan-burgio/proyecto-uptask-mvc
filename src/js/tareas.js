@@ -181,6 +181,8 @@
 
                 setTimeout(() => {
                     modal.remove();
+
+                    window.location.reload();
                 }, 3000);
 
             }
