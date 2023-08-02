@@ -15,7 +15,7 @@
 
             tareas = resultado.tareas;
             mostrarTareas();
-        } catch (error) {
+        } catch(error) {
             console.log(error);
         }
     }
@@ -215,7 +215,7 @@
     async function actualizarTarea(tarea) {
         const {estado, id, nombre, proyectoId} = tarea;
 
-        const datos = new FornmData();
+        const datos = new FormData();
         datos.append('id', id);
         datos.append('nombre', nombre);
         datos.append('estado', estado);
@@ -228,6 +228,11 @@
                 body: datos
             });
             const resultado = await respuesta.json();
+
+            if(resultado.respuesta.tipo === 'exito') {
+                mostrarAlerta(resultado.respuesta.mensaje, resultado.respuesta.tipo, document.querySelector('.contenedor-nueva-tarea'));
+            }
+
         } catch (error) {
             console.log(error);
         }
