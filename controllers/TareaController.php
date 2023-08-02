@@ -70,7 +70,6 @@ class TareaController {
             if($resultado) {
                 $respuesta = [
                     'tipo' => 'exito',
-                    'mensaje' => 'Actualizado correctamente',
                     'id' => $tarea->id,
                     'proyectoId' => $proyecto->id
                 ];
