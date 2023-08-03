@@ -188,12 +188,6 @@
             );
 
             if(resultado.tipo === 'exito') {
-                const modal = document.querySelector('.modal');
-
-                setTimeout(() => {
-                    modal.remove();
-                }, 3000);
-
                 // Agregar el objeto de tarea al global de tareas
                 const tareaObj = {
                     id: String(resultado.id),
@@ -235,9 +229,21 @@
             const resultado = await respuesta.json();
 
             if(resultado.respuesta.tipo === 'exito') {
+                Swal.fire({
+                    title: resultado.respuesta.mensaje,
+                    icon: 'success'
+                });
+
+                const modal = document.querySelector('.modal');
+
+                if(modal) {
+                    modal.remove();
+                }
+
                 tareas = tareas.map(tareaMemoria => {
                     if(tareaMemoria.id === id) {
                         tareaMemoria.estado = estado;
+                        tareaMemoria.nombre = nombre;
                     }
 
                     return tareaMemoria;
