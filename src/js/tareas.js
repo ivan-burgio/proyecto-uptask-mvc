@@ -48,7 +48,7 @@
             const nombreTarea = document.createElement('P');
             nombreTarea.textContent = tarea.nombre;
             nombreTarea.onclick = function () {
-                mostrarFormulario(editar = true, tarea);
+                mostrarFormulario(editar = true, {...tarea});
             }
 
             const opcionesDiv = document.createElement('DIV');
@@ -128,24 +128,24 @@
             }
 
             if(e.target.classList.contains('submit-nueva-tarea')) {
-                submitFormularioNuevaTarea();
+                const nombreTarea = document.querySelector('#tarea').value.trim();
+
+                if(tarea === '') {
+                    // Mostar alerta de error
+                    mostrarAlerta('Ingrese el nombre de la tarea', 'error', document.querySelector('.formulario legend'));
+                    return;
+                }
+
+                if(editar) {
+                    tarea.nombre = nombreTarea;
+                    actualizarTarea(tarea);
+                } else {
+                    agregarTarea(nombreTarea);
+                }
             }
         })
 
         document.querySelector('.dashboard').appendChild(modal);
-    }
-
-    function submitFormularioNuevaTarea() {
-        const tarea = document.querySelector('#tarea').value.trim();
-
-        if(tarea === '') {
-            // Mostar alerta de error
-            mostrarAlerta('Ingrese el nombre de la tarea', 'error', document.querySelector('.formulario legend'));
-
-            return;
-        }
-
-        agregarTarea(tarea);
     }
 
     function mostrarAlerta(mensaje, tipo, referencia) {
@@ -218,7 +218,7 @@
     }
 
     async function actualizarTarea(tarea) {
-        const {estado, id, nombre, proyectoId} = tarea;
+        const {estado, id, nombre} = tarea;
 
         const datos = new FormData();
         datos.append('id', id);
