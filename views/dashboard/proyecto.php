@@ -15,7 +15,7 @@
             <div class="filtros-inputs">
                 <h2>Filtros:</h2>
 
-                <div class="campos">
+                <div class="campo">
                     <label for="todas">Todas</label>
                     <input 
                         type="radio"
@@ -26,7 +26,7 @@
                     >
                 </div>
 
-                <div class="campos">
+                <div class="campo">
                     <label for="completadas">Completadas</label>
                     <input 
                         type="radio"
@@ -36,7 +36,7 @@
                     >
                 </div>
 
-                <div class="campos">
+                <div class="campo">
                     <label for="pendientes">Pendientes</label>
                     <input 
                         type="radio"
