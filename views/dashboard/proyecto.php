@@ -11,6 +11,43 @@
             </button>
         </div>
 
+        <div id="filtros" class="filtros">
+            <div class="filtros-inputs">
+                <h2>Filtros:</h2>
+
+                <div class="campos">
+                    <label for="todas">Todas</label>
+                    <input 
+                        type="radio"
+                        id="todas"
+                        name="filtro"
+                        value=""
+                        checked
+                    >
+                </div>
+
+                <div class="campos">
+                    <label for="completadas">Completadas</label>
+                    <input 
+                        type="radio"
+                        id="completadas"
+                        name="filtro"
+                        value="1"
+                    >
+                </div>
+
+                <div class="campos">
+                    <label for="pendientes">Pendientes</label>
+                    <input 
+                        type="radio"
+                        id="pendientes"
+                        name="filtro"
+                        value="0"
+                    >
+                </div>
+            </div>
+        </div>
+
         <ul id="listado-tareas" class="listado-tareas"></ul>
     </div>
 
