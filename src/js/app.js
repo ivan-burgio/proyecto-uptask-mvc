@@ -18,3 +18,12 @@ if(cerrarMenuBtn) {
         }, 500);
     })
 }
+
+// Elimina la clase de mostrar, en un tamaño de tablet y mayores
+window.addEventListener('resize', function() {
+    const anchoPantalla = document.body.clientHeight;
+
+    if(anchoPantalla >= 768) {
+        sidebar.classList.remove('mostrar');
+    }
+})
