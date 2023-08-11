@@ -3,6 +3,8 @@
 <div class="contenedor-sm">
     <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
 
+    <a href="/cambiar-password" class="enlace">Cambiar Contraseña</a>
+
     <form action="/perfil" method="POST" class="formulario">
         <div class="campo">
             <label for="nombre">Nombre</label>
