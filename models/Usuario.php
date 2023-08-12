@@ -84,7 +84,7 @@ class Usuario extends ActiveRecord {
         return self::$alertas;
     }
 
-    public function nuevo_password() {
+    public function nuevo_password() : array {
         if(!$this->password_actual) {
             self::$alertas['error'][] = 'Ingrese su contraseña actual';
         }
@@ -93,15 +93,15 @@ class Usuario extends ActiveRecord {
         } elseif(strlen($this->password_nuevo) < 8) {
             self::$alertas['error'][] = 'La contraseña nueva debe tener almenos 8 caracteres';
         }
-        
+
         return self::$alertas;
     }
 
-    public function hashPassword() {
+    public function hashPassword() : void{
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
 
-    public function crearToken() {
+    public function crearToken() : void {
         $this->token = uniqid();
     }
 }
