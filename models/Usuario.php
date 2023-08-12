@@ -12,6 +12,8 @@ class Usuario extends ActiveRecord {
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->password2 = $args['password2'] ?? '';
+        $this->password_actual = $args['password_actual'] ?? '';
+        $this->password_nuevo = $args['password_nuevo'] ?? '';
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
@@ -64,7 +66,7 @@ class Usuario extends ActiveRecord {
     public function validarPassword() {
         if(!$this->password) {
             self::$alertas['error'][] = 'Ingrese una contraseña';
-        } elseif (strlen($this->password) < 8) {
+        } elseif(strlen($this->password) < 8) {
             self::$alertas['error'][] = 'Ingrese una contraseña de almenos 8 caracteres';
         }
 
@@ -77,6 +79,19 @@ class Usuario extends ActiveRecord {
         }
         if(!$this->email) {
             self::$alertas['error'][] = 'Ingrese un email';
+        }
+        
+        return self::$alertas;
+    }
+
+    public function nuevo_password() {
+        if(!$this->password_actual) {
+            self::$alertas['error'][] = 'Ingrese su contraseña actual';
+        }
+        if(!$this->password_nuevo) {
+            self::$alertas['error'][] = 'Ingrese una contraseña nueva';
+        } elseif(strlen($this->password_nuevo) < 8) {
+            self::$alertas['error'][] = 'La contraseña nueva debe tener almenos 8 caracteres';
         }
         
         return self::$alertas;
