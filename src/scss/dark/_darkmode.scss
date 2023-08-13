@@ -1,7 +1,7 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-@media (prefers-color-schemme: dark) {
+@media (prefers-color-scheme: dark) {
     $grisOscuro: #2c2c3b;
 
     body {
