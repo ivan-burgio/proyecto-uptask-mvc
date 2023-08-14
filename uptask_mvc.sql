@@ -32,7 +32,7 @@ CREATE TABLE `proyectos` (
   PRIMARY KEY (`id`),
   KEY `propietarioId_idx` (`propietarioId`),
   CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`propietarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `proyectos` (
 
 LOCK TABLES `proyectos` WRITE;
 /*!40000 ALTER TABLE `proyectos` DISABLE KEYS */;
-INSERT INTO `proyectos` VALUES (1,'Tienda Virtual Autos','1ce1a1ed1dc2fa885b67bea8c2f2e948',9),(2,'Crear una api para pimba','72b211ca946e602227efcb97e7183fd6',9),(3,'hola','14d784e52ee945c0390eb073d541ca8f',9),(4,'Prueba 4','2d6e0a6a03697184718dcec50ccdd709',9);
+INSERT INTO `proyectos` VALUES (1,'Tienda Virtual Autos','1ce1a1ed1dc2fa885b67bea8c2f2e948',9),(2,'Crear una api para pimba','72b211ca946e602227efcb97e7183fd6',9),(5,'Diseñar Logotipo','1dc27bfa4a29e2837c61457c7bf69c55',9),(6,'App para Restaurante','39da940501a0e81b074727f6f7f85cab',9),(7,'Prueba','deb08cf5f464ebd484fe902e5f817598',9);
 /*!40000 ALTER TABLE `proyectos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `tareas` (
   PRIMARY KEY (`id`),
   KEY `proyectoId_idx` (`proyectoId`),
   CONSTRAINT `tareas_ibfk_1` FOREIGN KEY (`proyectoId`) REFERENCES `proyectos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +69,7 @@ CREATE TABLE `tareas` (
 
 LOCK TABLES `tareas` WRITE;
 /*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
+INSERT INTO `tareas` VALUES (2,'Configurar cuenta de PayPal',1,1),(3,'Elegir tema de WooCommerce',0,2),(5,'Elegir paleta de colores',0,5),(6,'Configurar Cuenta de Stripe',0,1),(7,'Investigar Framework Frontdend',1,2),(8,'Realizar Dibujo',0,5),(9,'Investigar Hosting',0,2),(10,'Configurar Backup',1,1),(11,'Buscar Hosting',0,1),(13,'Nueva tarea con virtual DOM',1,1),(20,'Investigar Seguridad',0,1),(21,'Configurar respaldos',1,1);
 /*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +88,7 @@ CREATE TABLE `usuarios` (
   `token` varchar(15) DEFAULT NULL,
   `confirmado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +97,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (9,' Ivan','hola@hola.com','$2y$10$pzaGjw26VMn6AmYy2UWxQOXC7DqAGUsaNG17VXPkcZ3FmXYhFKici','',1),(10,'Ivan','correo@correo.com','$2y$10$MpBRU5VI1nBfGDz8vOgS7uqS6or0r8x9llqTIPum4KjYu.eyNxa3K','',1);
+INSERT INTO `usuarios` VALUES (9,' Ivan Burgio','correo3@correo.com','$2y$10$h2k/gWy4XshlSQ.mEdDXseSZIOpr7cbyMr3PPf5BxfsIo3L9uNyQq','',1),(10,'Ivan','correo@correo.com','$2y$10$MpBRU5VI1nBfGDz8vOgS7uqS6or0r8x9llqTIPum4KjYu.eyNxa3K','',1),(11,'Ivan','correo2@correo.com','$2y$10$H3HTu1HuWawaRDEUdvBOKuh/ZX0vJP4r5J3f0krdPucFJbK85wkk2','',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-28 12:30:09
+-- Dump completed on 2023-08-14 12:29:26
